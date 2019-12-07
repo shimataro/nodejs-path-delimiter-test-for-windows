@@ -1,0 +1,259 @@
+on: push
+name: Import test
+jobs:
+  cjs-1-1:
+    name: require('..\\sub\\sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/1-1.js
+    - name: Run!
+      run: node ./main/1-1.js
+  cjs-1-2:
+    name: require('./..\\sub\\sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/1-2.js
+    - name: Run!
+      run: node ./main/1-2.js
+  cjs-2-1:
+    name: require('../sub\\sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/2-1.js
+    - name: Run!
+      run: node ./main/2-1.js
+  cjs-2-2:
+    name: require('./../sub\\sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/2-2.js
+    - name: Run!
+      run: node ./main/2-2.js
+  cjs-3-1:
+    name: require('.\\sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/3-1.js
+    - name: Run!
+      run: node ./main/3-1.js
+  cjs-3-2:
+    name: require('./.\\sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/3-2.js
+    - name: Run!
+      run: node ./main/3-2.js
+  cjs-4-1:
+    name: require('./sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/4-1.js
+    - name: Run!
+      run: node ./main/4-1.js
+  cjs-4-2:
+    name: require('././sub');
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/4-2.js
+    - name: Run!
+      run: node ./main/4-2.js
+  esm-1-1:
+    name: import '..\\sub\\sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/1-1.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/1-1.mjs
+  esm-1-2:
+    name: import './..\\sub\\sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/1-2.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/1-2.mjs
+  esm-2-1:
+    name: import '../sub\\sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/2-1.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/2-1.mjs
+  esm-2-2:
+    name: import './../sub\\sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/2-2.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/2-2.mjs
+  esm-3-1:
+    name: import '.\\sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/3-1.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/3-1.mjs
+  esm-3-2:
+    name: import './.\\sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/3-2.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/3-2.mjs
+  esm-4-1:
+    name: import './sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/4-1.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/4-1.mjs
+  esm-4-2:
+    name: import '././sub.mjs';
+    runs-on: windows-latest
+    steps:
+    - name: Checkout source codes
+      uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: "10.0.0"
+    - name: Output versions
+      run: node -v
+    - name: Print file
+      run: cat ./main/4-2.mjs
+    - name: Run!
+      run: node --experimental-modules ./main/4-2.mjs
